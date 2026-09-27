@@ -8,7 +8,7 @@ import computerSmall from './computerSmall.png';
 import myComputer from './myComputer.png';
 import showcaseIcon from './showcaseIcon.png';
 import doomIcon from './doomIcon.png';
-import henordleIcon from './henordleIcon.png';
+import samordleIcon from './samordleIcon.png';
 import credits from './credits.png';
 import volumeOn from './volumeOn.png';
 import volumeOff from './volumeOff.png';
@@ -32,7 +32,7 @@ const icons = {
     volumeOff: volumeOff,
     credits: credits,
     scrabbleIcon: scrabbleIcon,
-    henordleIcon: henordleIcon,
+    samordleIcon: samordleIcon,
     close: close,
     windowGameIcon: windowGameIcon,
     windowExplorerIcon: windowExplorerIcon,

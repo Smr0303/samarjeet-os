@@ -61,16 +61,7 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
                                 to="projects/software"
                                 text="SOFTWARE"
                             />
-                            <Link
-                                containerStyle={styles.insetLink}
-                                to="projects/music"
-                                text="MUSIC"
-                            />
-                            <Link
-                                containerStyle={styles.insetLink}
-                                to="projects/art"
-                                text="ART"
-                            />
+                            {/* MUSIC and ART links hidden for now; pages remain in ./projects/ */}
                         </div>
                     )
                 }
