@@ -10,71 +10,57 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
-                        <h1>Hover</h1>
+                        <h1>Fermi AI</h1>
                         <a
                             rel="noreferrer"
                             target="_blank"
-                            href={'https://hover.gg/'}
+                            href={'https://fermi.ai/'}
                         >
-                            <h4>www.hover.gg</h4>
+                            <h4>www.fermi.ai</h4>
                         </a>
                     </div>
                     <div style={styles.headerRow}>
-                        <h3>Frontend Engineer</h3>
+                        <h3>Software Engineer</h3>
                         <b>
-                            <p>Summer 2020 - Fall 2021</p>
+                            <p>May 2026 - Present</p>
                         </b>
                     </div>
                 </div>
             </div>
             <div className="text-block">
                 <p>
-                    Targeted towards online content creators and streamers
-                    looking to build a brand, Hover is the home of over 150K
-                    users. Written in Typescript using React, React-Native,
-                    Framer, Express, and Redux.
+                    Fermi AI is a Meraki Labs venture building an AI-powered
+                    STEM learning platform: AI tutors, study tools and a
+                    problem-solving workbench. Bangalore, onsite. Written in
+                    Python and TypeScript using FastAPI, Postgres, Celery,
+                    React and AWS ECS.
                 </p>
                 <br />
                 <ul>
                     <li>
                         <p>
-                            Architected and engineered the vertical scrolling
-                            discover player which, at its daily peak, was
-                            responsible for generating over 600,000 views across
-                            20,000 active users.
+                            Built usage-based billing and a credit ledger for AI
+                            tutors using FastAPI, Postgres and Celery.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Designed and implemented multiple features to
-                            increase app usability and user experience while
-                            ensuring the quality, maintainability and
-                            scalability of the front end as the user base grew
-                            by over 50,000.
+                            Launched Scan &amp; Ask, a photo-to-AI-tutor
+                            pipeline built on Gemini, live with India's National
+                            Digital Library.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Coordinated major refactors targeted towards app
-                            optimization and performance resulting in a smoother
-                            user experience and accomplished by eliminating
-                            redundant re-renders and API calls by over 50%.
+                            Reduced Postgres connection setups by 92% (64 to 5)
+                            and set up Grafana monitoring via Terraform on AWS
+                            ECS.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Directed and executed an internal migration of 3
-                            individual repositories to a single monorepo,
-                            greatly reducing overhead for developing new
-                            features, fixing bugs, and managing dependencies.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Rebuilt the website with React and shared mobile app
-                            components allowing users to access a wide variety
-                            of app interactions entirely on the web, resulting
-                            in over 700,000 total site visits.
+                            Optimized the home-page payload 3,900x (3.9MB to
+                            1KB) and library queries 4.5x (9 scans to 2).
                         </p>
                     </li>
                 </ul>
@@ -82,55 +68,53 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
-                        <h1>BrACS</h1>
+                        <h1>Nurix AI</h1>
                         <a
                             target="_blank"
                             rel="noreferrer"
-                            href={'https://bracs.co/'}
+                            href={'https://nurix.ai/'}
                         >
-                            <h4>www.bracs.co</h4>
+                            <h4>www.nurix.ai</h4>
                         </a>
                     </div>
                     <div style={styles.headerRow}>
-                        <h3>Team Lead & Engineer</h3>
+                        <h3>Software Engineer</h3>
                         <b>
-                            <p>Fall 2021 - Spring 2022</p>
+                            <p>Oct 2025 - Apr 2026</p>
                         </b>
                     </div>
                 </div>
             </div>
             <div className="text-block">
                 <p>
-                    Supervised and developed the front end of bracs.co, a
-                    beautifully simple and effective bracket creation and
-                    management engine. Written in Typescript using React and
-                    deployed using AWS Elastic Beanstalk.
+                    Nurix AI is a Meraki Labs venture building AI voice and chat
+                    agents for enterprises. Bangalore, onsite. Written in
+                    Python and TypeScript using FastAPI, AWS SQS, MySQL, Redis
+                    and Next.js.
                 </p>
                 <br />
                 <ul>
                     <li>
                         <p>
-                            Managed the project and team members by conducting
-                            bi-weekly stand-ups.
+                            Designed and developed a Campaign Manager system for
+                            bulk lead ingestion and automated outbound calling
+                            with configurable logic, using FastAPI, AWS SQS and
+                            MySQL.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Architected bracket view UI using React Flow and
-                            custom bracket data types built from binary trees.
+                            Performed load testing and system optimization that
+                            reduced database load by 70%, implemented Weighted
+                            Fair Scheduling and improved session handling to
+                            scale the system.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Created conversion algorithms to serialize bracket
-                            tree data to allow for saving in the cloud.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Implemented bracket generation utilities which
-                            employ gray code for proper team seeding and
-                            placement.
+                            Built a queue orchestrator with Redis-backed
+                            agent-level rate limiting using Lua scripts for
+                            triggering outbound calls.
                         </p>
                     </li>
                 </ul>
@@ -138,102 +122,124 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
-                        <h1>K-F/X</h1>
+                        <h1>Nurix AI</h1>
                         <a
                             target="_blank"
                             rel="noreferrer"
-                            href={'https://kfxnyc.com/'}
+                            href={'https://nurix.ai/'}
                         >
-                            <h4>www.kfxnyc.com</h4>
+                            <h4>www.nurix.ai</h4>
                         </a>
                     </div>
                     <div style={styles.headerRow}>
-                        <h3>Special Effects Technician</h3>
+                        <h3>Software Engineer Intern</h3>
                         <b>
-                            <p>Fall 2019, Summer 2021</p>
+                            <p>Mar 2025 - Sep 2025</p>
                         </b>
                     </div>
                 </div>
             </div>
             <div className="text-block">
                 <p>
-                    Applied problem solving and technical skills to operate
-                    large equipment such as rain machines, fog machines, small
-                    explosives and general rigging with a professional crew of
-                    50+ people.
+                    Joined Nurix as an intern during the final semester of my
+                    integrated degree and converted to a full-time engineer
+                    afterwards.
                 </p>
                 <br />
-                <h3 style={styles.indent}>Screen Credits:</h3>
+                <ul>
+                    <li>
+                        <p>
+                            Integrated LiteLLM as a unified LLM interface to
+                            orchestrate LLM and tool calls across multiple
+                            providers.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Built the end-to-end frontend in Next.js for an AI
+                            Agent QA Platform, enabling testing and debugging
+                            of AI agents.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Engineered a channel integration that embeds
+                            customizable chat agents into any website, using
+                            Service Workers for WebSocket management and
+                            multi-tab synchronization.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div style={styles.headerContainer}>
+                <div style={styles.header}>
+                    <div style={styles.headerRow}>
+                        <h1>Education</h1>
+                    </div>
+                    <div style={styles.headerRow}>
+                        <h3>IIIT Gwalior</h3>
+                        <b>
+                            <p>Jul 2020 - May 2025</p>
+                        </b>
+                    </div>
+                </div>
+            </div>
+            <div className="text-block">
+                <p>
+                    Integrated Bachelors and Masters in Information Technology,
+                    Indian Institute of Information Technology, Gwalior. CGPA
+                    7.9.
+                </p>
+                <br />
+                <h3 style={styles.indent}>Competitive Programming:</h3>
                 <ul>
                     <li style={styles.row}>
-                        <p>• Ray Donovan</p>
+                        <p>• Codeforces, Specialist, peak 1562</p>
                         <p>
                             [{' '}
                             <a
-                                href="https://www.sho.com/ray-donovan"
+                                href="https://codeforces.com/profile/zyab"
                                 target="_blank"
                                 rel="noreferrer"
                             >
-                                SHOWTIME
+                                PROFILE
                             </a>{' '}
                             ]
                         </p>
                     </li>
                     <li style={styles.row}>
-                        <p>• Ray Donovan: The Movie</p>
+                        <p>• LeetCode, Knight, peak 1860</p>
                         <p>
                             [{' '}
                             <a
-                                href="https://www.sho.com/titles/3508117/ray-donovan-the-movie"
+                                href="https://leetcode.com/u/Smohite3"
                                 target="_blank"
                                 rel="noreferrer"
                             >
-                                SHOWTIME
+                                PROFILE
                             </a>{' '}
                             ]
                         </p>
                     </li>
                     <li style={styles.row}>
-                        <p>• Hightown</p>
+                        <p>• CodeChef, 4 Star, peak 1884</p>
                         <p>
                             [{' '}
                             <a
-                                href="https://www.starz.com/us/en/series/hightown/57463"
+                                href="https://www.codechef.com/users/zyab_officials"
                                 target="_blank"
                                 rel="noreferrer"
                             >
-                                STARZ
+                                PROFILE
                             </a>{' '}
                             ]
                         </p>
                     </li>
                     <li style={styles.row}>
-                        <p>• Bull</p>
-                        <p>
-                            [{' '}
-                            <a
-                                href="https://www.cbs.com/shows/bull/"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                CBS
-                            </a>{' '}
-                            ]
-                        </p>
+                        <p>• Global rank 38, Codeforces Round 760 Div 3</p>
                     </li>
                     <li style={styles.row}>
-                        <p>• At Home with Amy Sedaris</p>
-                        <p>
-                            [{' '}
-                            <a
-                                href="https://www.trutv.com/shows/at-home-with-amy-sedaris"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                truTV
-                            </a>{' '}
-                            ]
-                        </p>
+                        <p>• Top 1600 of 400k+ teams, Flipkart Grid 5.0</p>
                     </li>
                 </ul>
             </div>
@@ -247,35 +253,10 @@ const styles: StyleSheetCSS = {
         justifyContent: 'space-between',
         width: '100%',
     },
-    skillRow: {
-        flex: 1,
-        justifyContent: 'space-between',
-    },
-    skillName: {
-        minWidth: 56,
-    },
-    skill: {
-        flex: 1,
-        padding: 8,
-        alignItems: 'center',
-    },
-    progressBar: {
-        flex: 1,
-        background: 'red',
-        marginLeft: 8,
-        height: 8,
-    },
-    hoverLogo: {
-        height: 32,
-        marginBottom: 16,
-    },
     headerContainer: {
         alignItems: 'flex-end',
         width: '100%',
         justifyContent: 'center',
-    },
-    hoverText: {
-        marginBottom: 8,
     },
     indent: {
         marginLeft: 24,
