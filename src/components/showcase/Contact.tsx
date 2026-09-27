@@ -53,46 +53,25 @@ const Contact: React.FC<ContactProps> = (props) => {
             setFormMessageColor('red');
             return;
         }
+        // No mail backend: hand the message to the visitor's email client.
         try {
             setIsLoading(true);
-            const res = await fetch(
-                'https://api.henryheffernan.com/api/contact',
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        company,
-                        email,
-                        name,
-                        message,
-                    }),
-                }
+            const subject = `Portfolio contact from ${name}${
+                company ? ` (${company})` : ''
+            }`;
+            const body = `${message}\n\n— ${name}\n${email}`;
+            window.open(
+                `mailto:samarmohite7@gmail.com?subject=${encodeURIComponent(
+                    subject
+                )}&body=${encodeURIComponent(body)}`,
+                '_top'
             );
-            // the response will be either {success: true} or {success: false, error: message}
-            const data = (await res.json()) as
-                | {
-                      success: false;
-                      error: string;
-                  }
-                | { success: true };
-            if (data.success) {
-                setFormMessage(`Message successfully sent. Thank you ${name}!`);
-                setCompany('');
-                setEmail('');
-                setName('');
-                setMessage('');
-                setFormMessageColor(colors.blue);
-                setIsLoading(false);
-            } else {
-                setFormMessage(data.error);
-                setFormMessageColor(colors.red);
-                setIsLoading(false);
-            }
+            setFormMessage(`Opening your email app. Thank you ${name}!`);
+            setFormMessageColor(colors.blue);
+            setIsLoading(false);
         } catch (e) {
             setFormMessage(
-                'There was an error sending your message. Please try again.'
+                'Could not open your email app. Please email me directly.'
             );
             setFormMessageColor(colors.red);
             setIsLoading(false);
@@ -220,7 +199,7 @@ const Contact: React.FC<ContactProps> = (props) => {
                                     <sub>
                                         {formMessage
                                             ? `${formMessage}`
-                                            : ' All messages get forwarded straight to my personal email'}
+                                            : ' Send opens your email app with the message filled in'}
                                     </sub>
                                 </b>
                             </p>
