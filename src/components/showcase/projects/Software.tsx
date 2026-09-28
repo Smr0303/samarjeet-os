@@ -59,6 +59,17 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                         <a
                             rel="noreferrer"
                             target="_blank"
+                            href="https://chromewebstore.google.com/detail/groupmailbox/nbiakohglicfbphghphgjijckccnknbp"
+                        >
+                            <p>
+                                <b>[Chrome Web Store]</b> - GroupMailBox
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            rel="noreferrer"
+                            target="_blank"
                             href="https://groupmailbox.com"
                         >
                             <p>

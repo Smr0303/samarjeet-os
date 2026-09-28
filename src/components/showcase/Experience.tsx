@@ -223,34 +223,42 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
-                        <h1>Earlier internships</h1>
+                        <h1>Sarvatech Labs</h1>
                     </div>
                     <div style={styles.headerRow}>
-                        <h3>During college</h3>
+                        <h3>Blockchain Developer Intern</h3>
                         <b>
-                            <p>2022 - 2024</p>
+                            <p>May 2023 - Jul 2023</p>
                         </b>
                     </div>
                 </div>
             </div>
             <div className="text-block">
-                <ul>
-                    <li>
-                        <p>
-                            <b>Sarvatech Labs</b>, Blockchain Developer Intern.
-                            Built web3 applications with Solidity and the
-                            surrounding tooling; this is where most of the
-                            DApps on the Older Projects page come from.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            <b>Inovocare Healthsoft Solutions</b>, SDE Intern
-                            (Full Stack). Shipped features across a React and
-                            Node.js healthcare product.
-                        </p>
-                    </li>
-                </ul>
+                <p>
+                    Built web3 applications with Solidity and the surrounding
+                    tooling. This is where most of the DApps on the Older
+                    Projects page come from.
+                </p>
+            </div>
+            <div style={styles.headerContainer}>
+                <div style={styles.header}>
+                    <div style={styles.headerRow}>
+                        <h1>Inovocare Healthsoft Solutions</h1>
+                    </div>
+                    <div style={styles.headerRow}>
+                        <h3>SDE Intern (Full Stack)</h3>
+                        <b>
+                            <p>Jun 2022 - Jan 2023</p>
+                        </b>
+                    </div>
+                </div>
+            </div>
+            <div className="text-block">
+                <p>
+                    Shipped features across a React and Node.js healthcare
+                    product. My first industry internship, in the second year
+                    of college.
+                </p>
             </div>
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
