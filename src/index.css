@@ -400,3 +400,22 @@ input:active {
     cursor: pointer;
     color: white;
 }
+
+/* MS-DOS Prompt block cursor */
+.dos-cursor {
+    animation: dos-blink 1s steps(1, end) infinite;
+}
+
+@keyframes dos-blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Minesweeper: an unrevealed cell presses in while the mouse is down */
+.mine-cell:active {
+    box-shadow: none;
+    border: 1px solid #808080;
+    border-right-color: #c0c0c0;
+    border-bottom-color: #c0c0c0;
+}
