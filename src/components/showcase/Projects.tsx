@@ -84,6 +84,13 @@ const Projects: React.FC<ProjectsProps> = (props) => {
                     subtitle="PROJECTS"
                     route="software"
                 />
+                <ProjectBox
+                    icon={software}
+                    iconStyle={styles.computerIcon}
+                    title="Older"
+                    subtitle="COLLEGE & WEB3 PROJECTS"
+                    route="older"
+                />
             </div>
         </div>
     );

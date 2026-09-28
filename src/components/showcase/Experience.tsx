@@ -174,6 +174,87 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
+                        <h1>Flagright</h1>
+                        <a
+                            target="_blank"
+                            rel="noreferrer"
+                            href={'https://www.flagright.com/'}
+                        >
+                            <h4>www.flagright.com</h4>
+                        </a>
+                    </div>
+                    <div style={styles.headerRow}>
+                        <h3>Software Engineer Intern</h3>
+                        <b>
+                            <p>Dec 2024 - Mar 2025</p>
+                        </b>
+                    </div>
+                </div>
+            </div>
+            <div className="text-block">
+                <p>
+                    Flagright (YC W22) builds real-time transaction monitoring
+                    and AML compliance tooling for fintechs. Bangalore, onsite.
+                </p>
+                <br />
+                <ul>
+                    <li>
+                        <p>
+                            Improved the rules execution engine by implementing
+                            asynchronous processing, reducing latency by 15%.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Designed APIs and created a Nango-based pipeline to
+                            sync CRM tickets into backend databases, reducing
+                            latency by 20%.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Built the dashboard that shows users their CRM
+                            tickets and handled the end-to-end integration with
+                            the APIs.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div style={styles.headerContainer}>
+                <div style={styles.header}>
+                    <div style={styles.headerRow}>
+                        <h1>Earlier internships</h1>
+                    </div>
+                    <div style={styles.headerRow}>
+                        <h3>During college</h3>
+                        <b>
+                            <p>2022 - 2024</p>
+                        </b>
+                    </div>
+                </div>
+            </div>
+            <div className="text-block">
+                <ul>
+                    <li>
+                        <p>
+                            <b>Sarvatech Labs</b>, Blockchain Developer Intern.
+                            Built web3 applications with Solidity and the
+                            surrounding tooling; this is where most of the
+                            DApps on the Older Projects page come from.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>Inovocare Healthsoft Solutions</b>, SDE Intern
+                            (Full Stack). Shipped features across a React and
+                            Node.js healthcare product.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div style={styles.headerContainer}>
+                <div style={styles.header}>
+                    <div style={styles.headerRow}>
                         <h1>Education</h1>
                     </div>
                     <div style={styles.headerRow}>

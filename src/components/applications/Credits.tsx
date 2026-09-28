@@ -8,7 +8,10 @@ export interface CreditsProps extends WindowAppProps {}
 const CREDITS = [
     {
         title: 'Engineering & Design',
-        rows: [['Henry Heffernan', 'All']],
+        rows: [
+            ['Henry Heffernan', 'Original site, OS & games'],
+            ['Samarjeet Mohite', 'Content, adaptation & deployment'],
+        ],
     },
     {
         title: 'Modeling & Texturing',
@@ -78,7 +81,7 @@ const Credits: React.FC<CreditsProps> = (props) => {
             closeWindow={props.onClose}
             onInteract={props.onInteract}
             minimizeWindow={props.onMinimize}
-            bottomLeftText={'© Copyright 2022 Henry Heffernan'}
+            bottomLeftText={'Original © 2022 Henry Heffernan · Content © 2026 Samarjeet Mohite'}
         >
             <div
                 onMouseDown={nextSlide}
@@ -86,7 +89,7 @@ const Credits: React.FC<CreditsProps> = (props) => {
                 style={styles.credits}
             >
                 <h2>Credits</h2>
-                <p>henryheffernan.com, 2022</p>
+                <p>Built on henryheffernan.com (MIT), adapted 2026</p>
                 <br />
                 <br />
                 <br />

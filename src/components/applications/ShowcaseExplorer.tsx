@@ -7,6 +7,7 @@ import Experience from '../showcase/Experience';
 import Projects from '../showcase/Projects';
 import Contact from '../showcase/Contact';
 import SoftwareProjects from '../showcase/projects/Software';
+import OlderProjects from '../showcase/projects/Older';
 // Music and Art routes are hidden for now; see ../showcase/projects/.
 import VerticalNavbar from '../showcase/VerticalNavbar';
 import useInitialWindowSize from '../../hooks/useInitialWindowSize';
@@ -41,6 +42,10 @@ const ShowcaseExplorer: React.FC<ShowcaseExplorerProps> = (props) => {
                         <Route
                             path="/projects/software"
                             element={<SoftwareProjects />}
+                        />
+                        <Route
+                            path="/projects/older"
+                            element={<OlderProjects />}
                         />
                     </Routes>
                 </div>

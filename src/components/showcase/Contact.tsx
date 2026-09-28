@@ -14,6 +14,35 @@ const validateEmail = (email: string) => {
     return re.test(String(email).toLowerCase());
 };
 
+const PROFILES = [
+    { label: 'GitHub', handle: 'Smr0303', href: 'https://github.com/Smr0303' },
+    {
+        label: 'LinkedIn',
+        handle: 'smr0x03',
+        href: 'https://www.linkedin.com/in/smr0x03/',
+    },
+    {
+        label: 'LeetCode',
+        handle: 'Smohite3, Knight, peak 1860',
+        href: 'https://leetcode.com/u/Smohite3/',
+    },
+    {
+        label: 'Codeforces',
+        handle: 'zyab, Specialist, peak 1562',
+        href: 'https://codeforces.com/profile/zyab',
+    },
+    {
+        label: 'CodeChef',
+        handle: 'zyab_officials, 4 Star, peak 1884',
+        href: 'https://www.codechef.com/users/zyab_officials',
+    },
+    {
+        label: 'GeeksforGeeks',
+        handle: 'samarmohite7',
+        href: 'https://www.geeksforgeeks.org/user/samarmohite7',
+    },
+];
+
 interface SocialBoxProps {
     icon: string;
     link: string;
@@ -116,6 +145,23 @@ const Contact: React.FC<ContactProps> = (props) => {
                         samarmohite7@gmail.com
                     </a>
                 </p>
+                <br />
+                <h3>Find me on:</h3>
+                <ul>
+                    {PROFILES.map((profile) => (
+                        <li key={profile.label}>
+                            <a
+                                rel="noreferrer"
+                                target="_blank"
+                                href={profile.href}
+                            >
+                                <p>
+                                    <b>[{profile.label}]</b> - {profile.handle}
+                                </p>
+                            </a>
+                        </li>
+                    ))}
+                </ul>
 
                 <div style={styles.form}>
                     <label>
