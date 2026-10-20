@@ -116,6 +116,16 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                     </li>
                     <li>
                         <p>
+                            Worked as a forward-deployed engineer on
+                            conversational AI agents, directly with clients
+                            across India and the US (First Mid, edtech and
+                            finance companies), worth $200K+ ARR combined.
+                            Built, customised and launched voice and chat
+                            agents for each client.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
                             Worked on the telephony re-architecture across the
                             API, voice service and UI, including inbound SIP
                             trunks on LiveKit and full support for a new

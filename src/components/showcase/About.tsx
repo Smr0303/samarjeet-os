@@ -45,7 +45,11 @@ const About: React.FC<AboutProps> = (props) => {
                     I started at Nurix AI as an intern in my final semester,
                     building the frontend for an AI agent QA platform and a
                     channel integration that embeds chat agents into any
-                    website. I converted to full time and moved to the backend:
+                    website. I also worked as a forward-deployed engineer,
+                    building conversational agents directly with clients in
+                    India and the US (First Mid, edtech and finance), worth
+                    $200K+ ARR combined. I converted to full time and moved to
+                    the backend:
                     a campaign manager for bulk outbound calling that grew to
                     ~40 clients and 5 lakh+ calls a day (500 in parallel), a
                     Redis-backed queue orchestrator, and the load testing that
