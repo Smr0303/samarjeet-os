@@ -40,21 +40,31 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                     <li>
                         <p>
                             Built usage-based billing and a credit ledger for AI
-                            tutors using FastAPI, Postgres and Celery.
+                            tutors using FastAPI, Postgres and Celery, billed
+                            per active minute across three surfaces with no
+                            double-charges.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Built a targeting and A/B experiment platform: user
+                            segments, a bucketing SDK, and experiments run
+                            through MCP.
                         </p>
                     </li>
                     <li>
                         <p>
                             Launched Scan &amp; Ask, a photo-to-AI-tutor
                             pipeline built on Gemini, live with India's National
-                            Digital Library.
+                            Digital Library at 98% parse accuracy. Built it end
+                            to end.
                         </p>
                     </li>
                     <li>
                         <p>
                             Reduced Postgres connection setups by 92% (64 to 5)
-                            and set up Grafana monitoring via Terraform on AWS
-                            ECS.
+                            and set up Grafana monitoring and slow-query alerts
+                            via Terraform on AWS ECS.
                         </p>
                     </li>
                     <li>
@@ -99,7 +109,17 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                             Designed and developed a Campaign Manager system for
                             bulk lead ingestion and automated outbound calling
                             with configurable logic, using FastAPI, AWS SQS and
-                            MySQL.
+                            MySQL. Built it end to end; it served ~40 clients
+                            and 5 lakh+ calls a day, with up to 500 calls in
+                            parallel.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Worked on the telephony re-architecture across the
+                            API, voice service and UI, including inbound SIP
+                            trunks on LiveKit and full support for a new
+                            telephony provider.
                         </p>
                     </li>
                     <li>
@@ -147,6 +167,13 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 </p>
                 <br />
                 <ul>
+                    <li>
+                        <p>
+                            Built the demo-agent website in Next.js: dozens of
+                            industry demo agents with chat mode and voice
+                            selection.
+                        </p>
+                    </li>
                     <li>
                         <p>
                             Integrated LiteLLM as a unified LLM interface to

@@ -46,12 +46,13 @@ const About: React.FC<AboutProps> = (props) => {
                     building the frontend for an AI agent QA platform and a
                     channel integration that embeds chat agents into any
                     website. I converted to full time and moved to the backend:
-                    a campaign manager for bulk outbound calling, a
+                    a campaign manager for bulk outbound calling that grew to
+                    ~40 clients and 5 lakh+ calls a day (500 in parallel), a
                     Redis-backed queue orchestrator, and the load testing that
                     cut database load by 70%. In 2026 I joined Fermi AI, a
                     sister venture, where I built usage-based billing for AI
-                    tutors and launched Scan &amp; Ask with India's National
-                    Digital Library. You can read more on the{' '}
+                    tutors and an A/B experiment platform, and launched Scan
+                    &amp; Ask with India's National Digital Library. You can read more on the{' '}
                     <Link to="/experience">Experience</Link> page.
                 </p>
                 <br />
