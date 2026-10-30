@@ -17,9 +17,10 @@ This is a Windows 95 style portfolio. Everything on it works:
  - Minesweeper: you know this one
 
 The room outside this screen is lit by this screen.
-Try the sun/moon switch in the top-left of the room, or
-change the wallpaper (Start > Settings > Display...) and
-watch the light in the room change colour.
+Change the wallpaper (Start > Settings > Display...) and
+watch the light in the room change colour. Out there you
+can also call my AI on the phone, strum the guitar, and
+click the frames on the wall.
 
 Email: samarmohite7@gmail.com
 GitHub: github.com/Smr0303

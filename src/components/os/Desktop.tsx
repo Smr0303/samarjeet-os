@@ -24,6 +24,9 @@ import {
     storedWallpaper,
 } from '../../constants/wallpapers';
 
+// Desktop icon grid spacing
+const SHORTCUT_STEP = { x: 96, y: 104 };
+
 export interface DesktopProps {}
 
 type ExtendedWindowAppProps<T> = T & WindowAppProps;
@@ -366,13 +369,19 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                 })}
                 <div style={styles.shortcuts}>
                     {shortcuts.map((shortcut, i) => {
+                        // fill a column down to the taskbar, then start the next
+                        const perColumn = Math.max(
+                            1,
+                            Math.floor((window.innerHeight - 16 - 40) / SHORTCUT_STEP.y)
+                        );
                         return (
                             <div
                                 style={Object.assign(
                                     {},
                                     styles.shortcutContainer,
                                     {
-                                        top: i * 104,
+                                        top: (i % perColumn) * SHORTCUT_STEP.y,
+                                        left: Math.floor(i / perColumn) * SHORTCUT_STEP.x,
                                     }
                                 )}
                                 key={shortcut.shortcutName}
