@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from '../general';
 import { useLocation, useNavigate } from 'react-router';
+import theme from '../../constants/theme';
 
 export interface VerticalNavbarProps {}
 
@@ -33,7 +34,7 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
             <div style={styles.header}>
                 <h1 style={styles.headerText}>Samarjeet</h1>
                 <h1 style={styles.headerText}>Mohite</h1>
-                <h3 style={styles.headerShowcase}>Showcase '26</h3>
+                <p style={styles.headerShowcase}>Showcase '26</p>
             </div>
             <div style={styles.links}>
                 <Link containerStyle={styles.link} to="" text="HOME" />
@@ -91,31 +92,41 @@ const styles: StyleSheetCSS = {
         width: 300,
         height: '100%',
         flexDirection: 'column',
-        padding: 48,
+        padding: 40,
         boxSizing: 'border-box',
         position: 'fixed',
         overflow: 'hidden',
+        background: theme.cream,
+        borderRight: '1px solid rgba(31, 27, 46, 0.12)',
     },
     header: {
         flexDirection: 'column',
-        marginBottom: 64,
+        marginBottom: 56,
     },
     headerText: {
-        fontSize: 38,
+        fontSize: 40,
         lineHeight: 1,
     },
     headerShowcase: {
         marginTop: 12,
+        alignSelf: 'flex-start',
+        padding: '2px 10px',
+        borderRadius: 999,
+        border: `1.5px solid ${theme.ink}`,
+        background: theme.amber,
+        color: theme.amberInk,
+        fontWeight: 700,
+        fontSize: 13,
     },
     logo: {
         width: '100%',
         marginBottom: 8,
     },
     link: {
-        marginBottom: 32,
+        marginBottom: 20,
     },
     expandedLink: {
-        marginBottom: 16,
+        marginBottom: 12,
     },
     insetLinks: {
         flexDirection: 'column',

@@ -96,7 +96,7 @@ const DateTime: React.FC<DateTimeProps> = (props) => {
 const styles: StyleSheetCSS = {
     wrap: {
         flexDirection: 'column',
-        background: '#c0c0c0',
+        background: '#fdf6ee',
         padding: 8,
         boxSizing: 'border-box',
     },
@@ -105,23 +105,27 @@ const styles: StyleSheetCSS = {
         paddingLeft: 2,
     },
     tab: {
-        boxShadow: 'var(--border-raised-outer), var(--border-raised-inner)',
-        background: '#c0c0c0',
+        boxShadow: 'none',
+        border: '1.5px solid #1f1b2e',
+        borderRadius: 10,
+        background: '#fdf6ee',
         padding: '3px 10px 0 10px',
         height: 22,
         marginBottom: -2,
         zIndex: 1,
     },
     tabText: {
-        fontFamily: 'MSSerif',
+        fontFamily: "'DM Sans', sans-serif",
         fontSize: 13,
     },
     sheet: {
         flex: 1,
         flexDirection: 'column',
-        boxShadow: 'var(--border-raised-outer), var(--border-raised-inner)',
+        boxShadow: 'none',
+        border: '1.5px solid #1f1b2e',
+        borderRadius: 10,
         padding: 14,
-        background: '#c0c0c0',
+        background: '#fdf6ee',
         justifyContent: 'space-between',
     },
     columns: {
@@ -133,7 +137,7 @@ const styles: StyleSheetCSS = {
         flex: 1,
     },
     caption: {
-        fontFamily: 'MSSerif',
+        fontFamily: "'DM Sans', sans-serif",
         fontSize: 13,
         marginBottom: 8,
     },
@@ -144,19 +148,21 @@ const styles: StyleSheetCSS = {
         fontSize: 26,
         lineHeight: '38px',
         padding: '0 10px',
-        boxShadow: 'var(--border-field)',
+        boxShadow: 'none',
+        border: '1.5px solid #1f1b2e',
+        borderRadius: 8,
         letterSpacing: 1,
         minWidth: 150,
         textAlign: 'center',
     },
     date: {
-        fontFamily: 'MSSerif',
+        fontFamily: "'DM Sans', sans-serif",
         fontSize: 12,
         marginTop: 8,
         textAlign: 'center',
     },
     zone: {
-        fontFamily: 'MSSerif',
+        fontFamily: "'DM Sans', sans-serif",
         fontSize: 12,
         marginTop: 12,
     },
@@ -167,7 +173,7 @@ const styles: StyleSheetCSS = {
     button: {
         minWidth: 76,
         fontSize: 13,
-        fontFamily: 'MSSerif',
+        fontFamily: "'DM Sans', sans-serif",
     },
 };
 

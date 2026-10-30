@@ -60,7 +60,8 @@ const Link: React.FC<LinkProps> = (props) => {
                 style={Object.assign(
                     {},
                     styles.link,
-                    active && { color: 'red' }
+                    isHere && styles.here,
+                    active && { transform: 'scale(0.95)' }
                 )}
             >
                 {props.text}
@@ -72,19 +73,24 @@ const Link: React.FC<LinkProps> = (props) => {
 const styles: StyleSheetCSS = {
     link: {
         cursor: 'pointer',
-        fontWeight: 'bolder',
-        textDecoration: 'underline',
+        textDecoration: 'none',
+        padding: '4px 10px',
+        borderRadius: 8,
+        transition: 'background-color 0.15s ease, transform 0.1s ease',
     },
+    here: {
+        background: '#fbe1c6',
+        color: '#c2571f',
+    },
+    // a small amber dot beside the page you're on
     hereIndicator: {
-        width: 4,
-        height: 4,
-        borderWidth: 3,
-        borderStyle: 'solid',
-        borderColor: 'rgb(85, 26, 139)',
+        width: 6,
+        height: 6,
+        background: '#f2b46d',
+        border: '1.5px solid #1f1b2e',
         alignSelf: 'center',
         borderRadius: '50%',
-        marginRight: 6,
-        textDecoration: 'none',
+        marginRight: 4,
     },
 };
 

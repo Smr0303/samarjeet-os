@@ -10,10 +10,22 @@ export interface Wallpaper {
     intensityScale?: number;
 }
 
-export const DEFAULT_WALLPAPER = 'teal';
+export const DEFAULT_WALLPAPER = 'dawn';
 const STORAGE_KEY = 'os-wallpaper';
 
 export const WALLPAPERS: Wallpaper[] = [
+    {
+        id: 'dawn',
+        name: 'Dawn',
+        style: {
+            backgroundColor: '#4a3a6e',
+            backgroundImage: [
+                'radial-gradient(circle at 72% 80%, #ffe2b0 0px, #ffbf7a 46px, rgba(255,191,122,0.55) 70px, rgba(255,170,110,0) 220px)',
+                'linear-gradient(180deg, #2a2547 0%, #43386a 32%, #a8698a 64%, #e99a7e 84%, #f6c08a 100%)',
+            ].join(', '),
+        },
+        lightColor: '#ffc79a',
+    },
     {
         id: 'teal',
         name: 'Classic teal',

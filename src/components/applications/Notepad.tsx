@@ -8,10 +8,10 @@ export const README_TEXT = `README.TXT
 
 Hi, I'm Samarjeet. Welcome to my desk.
 
-This is a Windows 95 style portfolio. Everything on it works:
+This is SamOS, my Windows 95 style portfolio. Everything on it works:
 
  - My Showcase: who I am, where I've worked, what I've built
- - MS-DOS Prompt: type "help" if you like terminals
+ - Terminal: type "help" if you like terminals
  - Doom: yes, the real one
  - Samordle: Wordle, but the word is always the same
  - Minesweeper: you know this one
@@ -45,8 +45,7 @@ const Notepad: React.FC<NotepadProps> = (props) => {
                 <div style={styles.menu}>
                     {MENU.map((item) => (
                         <p key={item} style={styles.menuItem}>
-                            <u>{item[0]}</u>
-                            {item.slice(1)}
+                            {item}
                         </p>
                     ))}
                 </div>
@@ -65,32 +64,38 @@ const Notepad: React.FC<NotepadProps> = (props) => {
 const styles: StyleSheetCSS = {
     wrap: {
         flexDirection: 'column',
-        background: '#c0c0c0',
+        background: '#fdf6ee',
     },
     menu: {
-        height: 20,
+        height: 32,
         alignItems: 'center',
-        paddingLeft: 4,
+        padding: '0 10px',
         flexShrink: 0,
+        borderBottom: '1px solid rgba(31, 27, 46, 0.12)',
     },
     menuItem: {
-        fontFamily: 'MSSerif',
+        fontFamily: "'DM Sans', sans-serif",
+        fontWeight: 500,
         fontSize: 13,
-        marginRight: 14,
+        color: '#3a3346',
+        padding: '2px 8px',
+        borderRadius: 6,
+        marginRight: 4,
     },
     text: {
         flex: 1,
         width: '100%',
         height: '100%',
         margin: 0,
-        padding: '6px 8px',
+        padding: '14px 18px',
         border: 'none',
-        boxShadow: 'var(--border-field)',
-        background: '#fff',
-        color: '#000',
-        fontFamily: 'Terminal, monospace',
-        fontSize: 15,
-        lineHeight: 1.35,
+        borderRadius: 0,
+        boxShadow: 'none',
+        background: '#fffaf4',
+        color: '#1f1b2e',
+        fontFamily: "'JetBrains Mono', Menlo, Consolas, monospace",
+        fontSize: 13,
+        lineHeight: 1.6,
         resize: 'none',
         outline: 'none',
         whiteSpace: 'pre',

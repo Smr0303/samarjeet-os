@@ -57,7 +57,7 @@ const APPLICATIONS: {
     },
     dos: {
         key: 'dos',
-        name: 'MS-DOS Prompt',
+        name: 'Terminal',
         shortcutIcon: 'dosIcon',
         component: DosPrompt,
     },
@@ -355,6 +355,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                             key={`win-${key}`}
                             style={Object.assign(
                                 {},
+                                styles.windowSlot,
                                 { zIndex: windows[key].zIndex },
                                 windows[key].minimized && styles.minimized
                             )}
@@ -429,9 +430,17 @@ const styles: StyleSheetCSS = {
         top: 16,
         left: 6,
     },
+    // windows shrink down into the dock when minimised
+    windowSlot: {
+        transform: 'translateY(0) scale(1)',
+        // the slot has no size of its own; shrink toward the dock
+        transformOrigin: '50vw 100vh',
+        transition: 'opacity 0.22s ease, transform 0.3s cubic-bezier(0.3, 1.2, 0.5, 1)',
+    },
     minimized: {
         pointerEvents: 'none',
         opacity: 0,
+        transform: 'translateY(120px) scale(0.6)',
     },
 };
 

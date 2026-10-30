@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import Colors from '../../constants/colors';
+import { motion } from 'framer-motion';
+import theme from '../../constants/theme';
 import { Icon } from '../general';
 import { IconName } from '../../assets/icons';
 import DesktopContext from './DesktopContext';
@@ -233,13 +234,17 @@ const Toolbar: React.FC<ToolbarProps> = ({
     return (
         <div style={styles.toolbarOuter}>
             {startWindowOpen && (
-                <div
+                <motion.div
                     onMouseDown={onStartWindowClicked}
                     style={styles.startWindow}
+                    // slides up out of the dock
+                    initial={{ opacity: 0, y: 16, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ type: 'spring', stiffness: 500, damping: 34 }}
                 >
                     <div style={styles.startWindowInner}>
                         <div style={styles.verticalStartContainer}>
-                            <p style={styles.verticalText}>MohiteOS</p>
+                            <p style={styles.verticalText}>SamOS</p>
                         </div>
                         <div style={styles.startWindowContent}>
                             <div style={styles.startMenuSpace} />
@@ -261,7 +266,7 @@ const Toolbar: React.FC<ToolbarProps> = ({
                             </div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             )}
             <div style={styles.toolbarInner}>
                 <div style={styles.toolbar}>
@@ -285,7 +290,7 @@ const Toolbar: React.FC<ToolbarProps> = ({
                                 icon="windowsStartIcon"
                                 style={styles.startIcon}
                             />
-                            <p className="toolbar-text ">Start</p>
+                            <p style={styles.startText}>Start</p>
                         </div>
                     </div>
                     <div style={styles.toolbarTabsContainer}>
@@ -339,36 +344,40 @@ const Toolbar: React.FC<ToolbarProps> = ({
     );
 };
 
+const ink = `1.5px solid ${theme.ink}`;
+
 const styles: StyleSheetCSS = {
+    // a floating dock, centred above the bottom edge
     toolbarOuter: {
         boxSizing: 'border-box',
         position: 'absolute',
-        bottom: 0,
-        width: '100%',
-        height: 32,
-        background: Colors.lightGray,
-        borderTop: `1px solid ${Colors.lightGray}`,
+        bottom: 10,
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: 'min(920px, calc(100% - 24px))',
+        height: 50,
+        padding: '0 8px',
+        background: theme.cream,
+        border: ink,
+        borderRadius: 16,
+        boxShadow: theme.shadow,
         zIndex: 100000,
     },
     verticalStartContainer: {
-        // width: 30,
         height: '100%',
-        background: Colors.darkGray,
+        background: theme.amber,
+        borderRight: ink,
     },
     verticalText: {
-        fontFamily: 'Terminal',
-        textOrientation: 'sideways',
-        fontSize: 32,
-        padding: 4,
+        fontFamily: theme.pixelFont,
+        fontWeight: 600,
+        fontSize: 28,
+        padding: 6,
         paddingBottom: 64,
-        paddingTop: 8,
+        paddingTop: 10,
         letterSpacing: 1,
-        color: Colors.lightGray,
+        color: theme.amberInk,
         transform: 'scale(-1)',
-        WebkitTransform: 'scale(-1)',
-        MozTransform: 'scale(-1)',
-        msTransform: 'scale(-1)',
-        OTransform: 'scale(-1)',
         // @ts-ignore
         writingMode: 'tb-rl',
     },
@@ -376,32 +385,26 @@ const styles: StyleSheetCSS = {
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'flex-end',
-        // alignItems: 'flex-end',
+        padding: 6,
     },
     startWindow: {
         position: 'absolute',
-        bottom: 28,
+        bottom: 60,
+        left: 0,
         display: 'flex',
-        flex: 1,
-        width: 256,
-        // height: 400,
-        left: 4,
+        width: 280,
         boxSizing: 'border-box',
-        border: `1px solid ${Colors.white}`,
-        borderBottomColor: Colors.black,
-        borderRightColor: Colors.black,
-        background: Colors.lightGray,
-    },
-    activeTabOuter: {
-        border: `1px solid ${Colors.black}`,
-        borderBottomColor: Colors.white,
-        borderRightColor: Colors.white,
+        border: ink,
+        borderRadius: 14,
+        overflow: 'visible',
+        background: theme.cream,
+        boxShadow: theme.shadow,
+        transformOrigin: 'bottom left',
     },
     startWindowInner: {
-        border: `1px solid ${Colors.lightGray}`,
-        borderBottomColor: Colors.darkGray,
-        borderRightColor: Colors.darkGray,
         flex: 1,
+        borderRadius: 13,
+        overflow: 'hidden',
     },
     startMenuIcon: {
         width: 32,
@@ -413,159 +416,154 @@ const styles: StyleSheetCSS = {
     },
     startMenuText: {
         fontSize: 14,
-        fontFamily: 'MSSerif',
-        marginLeft: 8,
+        fontFamily: theme.uiFont,
+        fontWeight: 500,
+        color: theme.ink,
+        marginLeft: 10,
         flex: 1,
     },
     startMenuOption: {
         alignItems: 'center',
-        // flex: 1,
         height: 24,
-        padding: 12,
+        padding: 10,
+        borderRadius: 10,
         position: 'relative',
+        cursor: 'pointer',
     },
     startMenuOptionOpen: {
-        backgroundColor: Colors.darkBlue,
-        color: Colors.white,
+        backgroundColor: theme.amberSoft,
     },
     subMenuOption: {
         height: 18,
-        padding: '6px 12px',
+        padding: '7px 10px',
     },
     arrow: {
         fontSize: 9,
         marginLeft: 8,
+        color: theme.muted,
     },
     subMenu: {
         position: 'absolute',
         left: '100%',
-        top: -3,
-        marginLeft: -3,
-        minWidth: 190,
+        top: -6,
+        marginLeft: 6,
+        minWidth: 200,
         boxSizing: 'border-box',
-        border: `1px solid ${Colors.white}`,
-        borderBottomColor: Colors.black,
-        borderRightColor: Colors.black,
-        background: Colors.lightGray,
-        color: Colors.black,
+        border: ink,
+        borderRadius: 12,
+        background: theme.cream,
+        boxShadow: theme.shadow,
         zIndex: 10,
         cursor: 'default',
     },
     subMenuInner: {
         flexDirection: 'column',
-        border: `1px solid ${Colors.lightGray}`,
-        borderBottomColor: Colors.darkGray,
-        borderRightColor: Colors.darkGray,
-        padding: 2,
+        padding: 6,
+        flex: 1,
     },
     startMenuSpace: {
         flex: 1,
     },
     startMenuLine: {
         height: 1,
-        background: Colors.white,
-        borderTop: `1px solid ${Colors.darkGray}`,
+        margin: '6px 8px',
+        background: 'rgba(31, 27, 46, 0.15)',
+    },
+    activeTabOuter: {
+        background: theme.amberSoft,
+        border: ink,
     },
     activeTabInner: {
-        border: `1px solid ${Colors.darkGray}`,
-        borderBottomColor: Colors.lightGray,
-        borderRightColor: Colors.lightGray,
-        backgroundImage: `linear-gradient(45deg, white 25%, transparent 25%),
-        linear-gradient(-45deg,  white 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%,  white 75%),
-        linear-gradient(-45deg, transparent 75%,  white 75%)`,
-        backgroundSize: `4px 4px`,
-        backgroundPosition: `0 0, 0 2px, 2px -2px, -2px 0px`,
         pointerEvents: 'none',
     },
     tabContainerOuter: {
         display: 'flex',
         flex: 1,
-        maxWidth: 300,
-        marginRight: 4,
+        maxWidth: 210,
+        height: 36,
+        marginRight: 6,
         boxSizing: 'border-box',
         cursor: 'pointer',
-        border: `1px solid ${Colors.white}`,
-        borderBottomColor: Colors.black,
-        borderRightColor: Colors.black,
+        borderRadius: 10,
+        border: '1.5px solid transparent',
+        transition: 'background 0.15s ease',
     },
     tabContainer: {
         display: 'flex',
-        border: `1px solid ${Colors.lightGray}`,
-        borderBottomColor: Colors.darkGray,
-        borderRightColor: Colors.darkGray,
         alignItems: 'center',
-        paddingLeft: 4,
+        padding: '0 8px',
         flex: 1,
+        minWidth: 0,
     },
     tabIcon: {
-        marginRight: 6,
+        marginRight: 8,
     },
     startContainer: {
         alignItems: 'center',
-        flexShrink: 1,
-        // background: 'red',
-        border: `1px solid ${Colors.lightGray}`,
-        borderBottomColor: Colors.darkGray,
-        borderRightColor: Colors.darkGray,
-        padding: 1,
-        paddingLeft: 5,
-        paddingRight: 5,
+        padding: '0 12px',
+        height: '100%',
     },
     startContainerOuter: {
-        marginLeft: 3,
+        height: 36,
         boxSizing: 'border-box',
         cursor: 'pointer',
-        border: `1px solid ${Colors.white}`,
-        borderBottomColor: Colors.black,
-        borderRightColor: Colors.black,
+        background: theme.amber,
+        border: ink,
+        borderRadius: 11,
+    },
+    startText: {
+        fontFamily: theme.pixelFont,
+        fontWeight: 600,
+        fontSize: 17,
+        color: theme.amberInk,
     },
     toolbarTabsContainer: {
-        // background: 'blue',
         flex: 1,
-        marginLeft: 4,
-        marginRight: 4,
+        alignItems: 'center',
+        marginLeft: 8,
+        marginRight: 8,
+        minWidth: 0,
     },
     startIcon: {
-        marginRight: 4,
+        marginRight: 6,
     },
     toolbarInner: {
-        borderTop: `1px solid ${Colors.white}`,
-
         alignItems: 'center',
         flex: 1,
     },
     toolbar: {
         flexGrow: 1,
-        width: '100%',
+        alignItems: 'center',
+        minWidth: 0,
     },
     time: {
-        flexShrink: 1,
-        width: 86,
-        height: 24,
+        flexShrink: 0,
+        height: 36,
         boxSizing: 'border-box',
-        marginRight: 4,
-        paddingLeft: 4,
-        paddingRight: 4,
-        border: `1px solid ${Colors.white}`,
-        borderTopColor: Colors.darkGray,
+        padding: '0 10px',
+        borderRadius: 10,
         cursor: 'pointer',
-
-        justifyContent: 'space-between',
         alignItems: 'center',
-        borderLeftColor: Colors.darkGray,
+        gap: 8,
     },
     volumeIcon: {
         cursor: 'pointer',
         height: 18,
     },
     tabText: {
-        fontSize: 14,
-        fontFamily: 'MSSerif',
+        fontSize: 13,
+        fontFamily: theme.uiFont,
+        fontWeight: 500,
+        color: theme.ink,
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
     },
     timeText: {
-        fontSize: 12,
-        fontFamily: 'MSSerif',
+        fontSize: 13,
+        fontFamily: theme.uiFont,
+        fontWeight: 500,
+        color: theme.muted,
     },
 };
 

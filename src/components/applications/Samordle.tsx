@@ -7,10 +7,11 @@ export interface SamordleAppProps extends WindowAppProps {}
 const SamordleApp: React.FC<SamordleAppProps> = (props) => {
     return (
         <Window
-            top={20}
+            top={16}
             left={300}
             width={600}
-            height={860}
+            // stay clear of the dock on shorter screens
+            height={Math.min(860, window.innerHeight - 96)}
             windowBarIcon="windowGameIcon"
             windowTitle="Samordle"
             closeWindow={props.onClose}

@@ -11,7 +11,7 @@ import { BANNER, runCommand } from '../dos/commands';
 
 export interface DosPromptProps extends WindowAppProps {}
 
-const PROMPT = 'C:\\>';
+const PROMPT = 'sam@samos ~ $ ';
 const MAX_LINES = 400;
 
 const DosPrompt: React.FC<DosPromptProps> = (props) => {
@@ -101,7 +101,7 @@ const DosPrompt: React.FC<DosPromptProps> = (props) => {
             left={300}
             width={680}
             height={430}
-            windowTitle="MS-DOS Prompt"
+            windowTitle="Terminal: sam@samos"
             windowBarIcon="dosIcon"
             closeWindow={props.onClose}
             onInteract={props.onInteract}
@@ -119,13 +119,22 @@ const DosPrompt: React.FC<DosPromptProps> = (props) => {
                 <div style={styles.output}>
                     {lines.map((line, i) => (
                         <div key={i} style={styles.line}>
-                            {line === '' ? '\u00a0' : line}
+                            {line.startsWith(PROMPT) ? (
+                                <>
+                                    <span style={styles.prompt}>{PROMPT}</span>
+                                    {line.slice(PROMPT.length)}
+                                </>
+                            ) : line === '' ? (
+                                '\u00a0'
+                            ) : (
+                                line
+                            )}
                         </div>
                     ))}
                     <div style={styles.line}>
-                        {PROMPT}
+                        <span style={styles.prompt}>{PROMPT}</span>
                         {input}
-                        <span className="dos-cursor">_</span>
+                        <span className="dos-cursor" style={styles.cursor} />
                     </div>
                 </div>
                 <input
@@ -138,7 +147,7 @@ const DosPrompt: React.FC<DosPromptProps> = (props) => {
                     autoCapitalize="off"
                     autoCorrect="off"
                     spellCheck={false}
-                    aria-label="MS-DOS Prompt command line"
+                    aria-label="Terminal command line"
                 />
                 {matrix && <MatrixRain onDone={() => setMatrix(false)} />}
             </div>
@@ -166,10 +175,10 @@ const MatrixRain: React.FC<{ onDone: () => void }> = ({ onDone }) => {
         const draw = (t: number) => {
             if (t - last > 50) {
                 last = t;
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.12)';
+                ctx.fillStyle = 'rgba(27, 23, 38, 0.14)';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 ctx.fillStyle = '#4af626';
-                ctx.font = `${size}px Terminal, monospace`;
+                ctx.font = `${size}px 'JetBrains Mono', monospace`;
                 for (let i = 0; i < cols; i++) {
                     const ch = chars[Math.floor(Math.random() * chars.length)];
                     ctx.fillText(ch, i * size, drops[i] * size);
@@ -191,18 +200,33 @@ const MatrixRain: React.FC<{ onDone: () => void }> = ({ onDone }) => {
 };
 
 const styles: StyleSheetCSS = {
+    // warm-ink terminal with an amber prompt
     screen: {
         flexDirection: 'column',
-        background: '#000',
-        color: '#c0c0c0',
-        fontFamily: 'Terminal, monospace',
-        fontSize: 16,
-        lineHeight: 1.25,
+        background: '#1b1726',
+        color: '#e9e1f0',
+        fontFamily: "'JetBrains Mono', Menlo, Consolas, monospace",
+        fontSize: 13,
+        lineHeight: 1.6,
         overflowY: 'auto',
         overflowX: 'hidden',
-        padding: 6,
+        padding: '12px 16px',
         cursor: 'text',
         position: 'absolute',
+    },
+    prompt: {
+        color: '#f2b46d',
+        fontWeight: 600,
+    },
+    cursor: {
+        display: 'inline-block',
+        width: 8,
+        height: 16,
+        marginLeft: 1,
+        verticalAlign: 'text-bottom',
+        background: '#f2b46d',
+        borderRadius: 2,
+        boxShadow: '0 0 8px rgba(242, 180, 109, 0.7)',
     },
     output: {
         display: 'flex',
@@ -211,6 +235,7 @@ const styles: StyleSheetCSS = {
     },
     line: {
         minHeight: 20,
+        display: 'block',
     },
     hiddenInput: {
         position: 'absolute',

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import { IconName } from '../../assets/icons';
-import colors from '../../constants/colors';
-import Colors from '../../constants/colors';
+import theme from '../../constants/theme';
 import Icon from '../general/Icon';
 import Button from './Button';
 import DragIndicator from './DragIndicator';
@@ -159,10 +159,11 @@ const Window: React.FC<WindowProps> = (props) => {
                 top,
                 left,
             });
-            setWidth(window.innerWidth);
-            setHeight(window.innerHeight - 32);
-            setTop(0);
-            setLeft(0);
+            // leave the floating dock clear
+            setWidth(window.innerWidth - 16);
+            setHeight(window.innerHeight - 78);
+            setTop(8);
+            setLeft(8);
             setIsMaximized(true);
         }
     };
@@ -200,7 +201,13 @@ const Window: React.FC<WindowProps> = (props) => {
                 })}
                 ref={windowRef}
             >
-                <div style={styles.windowBorderOuter}>
+                <motion.div
+                    style={styles.windowBorderOuter}
+                    // springs open from a little below and smaller
+                    initial={{ opacity: 0, scale: 0.92, y: 18 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ type: 'spring', stiffness: 420, damping: 30 }}
+                >
                     <div style={styles.windowBorderInner}>
                         <div
                             style={styles.dragHitbox}
@@ -215,7 +222,7 @@ const Window: React.FC<WindowProps> = (props) => {
                                     backgroundColor: props.windowBarColor,
                                 },
                                 !windowActive && {
-                                    backgroundColor: Colors.darkGray,
+                                    backgroundColor: theme.inactive,
                                 }
                             )}
                         >
@@ -234,12 +241,11 @@ const Window: React.FC<WindowProps> = (props) => {
                                     <div style={{ width: 16 }} />
                                 )}
                                 <p
-                                    style={
-                                        windowActive
-                                            ? {}
-                                            : { color: colors.lightGray }
-                                    }
-                                    className="showcase-header"
+                                    style={Object.assign(
+                                        {},
+                                        styles.title,
+                                        !windowActive && { color: theme.muted }
+                                    )}
                                 >
                                     {props.windowTitle}
                                 </p>
@@ -250,12 +256,11 @@ const Window: React.FC<WindowProps> = (props) => {
                                     onClick={props.minimizeWindow}
                                 />
                                 <Button icon="maximize" onClick={maximize} />
-                                <div style={{ paddingLeft: 2 }}>
-                                    <Button
-                                        icon="close"
-                                        onClick={props.closeWindow}
-                                    />
-                                </div>
+                                <Button
+                                    icon="close"
+                                    variant="close"
+                                    onClick={props.closeWindow}
+                                />
                             </div>
                         </div>
                         <div
@@ -280,30 +285,10 @@ const Window: React.FC<WindowProps> = (props) => {
                                     alignItems: 'center',
                                 })}
                             >
-                                <p
-                                    style={{
-                                        fontSize: 12,
-                                        marginLeft: 4,
-                                        fontFamily: 'MSSerif',
-                                    }}
-                                >
+                                <p style={styles.statusText}>
                                     {props.bottomLeftText}
                                 </p>
                             </div>
-                            <div
-                                style={Object.assign(
-                                    {},
-                                    styles.insetBorder,
-                                    styles.bottomSpacer
-                                )}
-                            />
-                            <div
-                                style={Object.assign(
-                                    {},
-                                    styles.insetBorder,
-                                    styles.bottomSpacer
-                                )}
-                            />
                             <div
                                 style={Object.assign(
                                     {},
@@ -321,7 +306,7 @@ const Window: React.FC<WindowProps> = (props) => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             <div
@@ -372,110 +357,111 @@ const Window: React.FC<WindowProps> = (props) => {
 
 const styles: StyleSheetCSS = {
     window: {
-        backgroundColor: Colors.lightGray,
         position: 'absolute',
     },
     dragHitbox: {
         position: 'absolute',
-        width: 'calc(100% - 70px)',
-        height: 48,
+        width: 'calc(100% - 90px)',
+        height: 40,
         zIndex: 10000,
-        top: -8,
-        left: -4,
+        top: 0,
+        left: 0,
         cursor: 'move',
     },
     windowBorderOuter: {
-        border: `1px solid ${Colors.black}`,
-        borderTopColor: colors.lightGray,
-        borderLeftColor: colors.lightGray,
         flex: 1,
+        display: 'flex',
+        border: `1.5px solid ${theme.ink}`,
+        borderRadius: theme.radius,
+        overflow: 'hidden',
+        background: theme.cream,
+        boxShadow: theme.shadow,
     },
     windowBorderInner: {
-        border: `1px solid ${Colors.darkGray}`,
-        borderTopColor: colors.white,
-        borderLeftColor: colors.white,
         flex: 1,
-        padding: 2,
-
         flexDirection: 'column',
+        position: 'relative',
+        minWidth: 0,
     },
     resizeHitbox: {
         position: 'absolute',
-        width: 60,
-        height: 60,
-        bottom: -20,
-        right: -20,
+        width: 40,
+        height: 40,
+        bottom: -10,
+        right: -10,
         cursor: 'nwse-resize',
     },
     topBar: {
-        backgroundColor: Colors.blue,
+        backgroundColor: theme.amber,
         width: '100%',
-        height: 20,
-
+        height: 36,
+        flexShrink: 0,
         alignItems: 'center',
-        paddingRight: 2,
+        padding: '0 10px',
         boxSizing: 'border-box',
+        borderBottom: `1.5px solid ${theme.ink}`,
+        transition: 'background-color 0.2s ease',
+    },
+    title: {
+        fontFamily: theme.pixelFont,
+        fontSize: 16,
+        fontWeight: 500,
+        color: theme.amberInk,
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
     },
     contentOuter: {
-        border: `1px solid ${Colors.white}`,
-        borderTopColor: colors.darkGray,
-        borderLeftColor: colors.darkGray,
         flexGrow: 1,
-
-        marginTop: 8,
-        marginBottom: 8,
         overflow: 'hidden',
     },
     contentInner: {
-        border: `1px solid ${Colors.lightGray}`,
-        borderTopColor: colors.black,
-        borderLeftColor: colors.black,
         flex: 1,
         overflow: 'hidden',
     },
     content: {
         flex: 1,
-
         position: 'relative',
-        // overflow: 'scroll',
         overflowX: 'hidden',
-        backgroundColor: Colors.white,
+        backgroundColor: theme.paper,
     },
     bottomBar: {
-        flexShrink: 1,
+        flexShrink: 0,
         width: '100%',
-        height: 20,
+        height: 26,
+        alignItems: 'center',
+        background: theme.cream,
+        borderTop: '1px solid rgba(31, 27, 46, 0.12)',
+        boxSizing: 'border-box',
+        padding: '0 10px',
     },
-    bottomSpacer: {
-        width: 16,
-        marginLeft: 2,
+    statusText: {
+        fontFamily: theme.uiFont,
+        fontSize: 12,
+        color: theme.muted,
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
     },
     insetBorder: {
-        border: `1px solid ${Colors.white}`,
-        borderTopColor: colors.darkGray,
-        borderLeftColor: colors.darkGray,
-        padding: 2,
+        padding: 0,
     },
     bottomResizeContainer: {
         flex: 2 / 7,
-
         justifyContent: 'flex-end',
-        padding: 0,
-        marginLeft: 2,
+        opacity: 0.5,
     },
     windowTopButtons: {
-        // zIndex: 10000,
-
         alignItems: 'center',
+        gap: 6,
     },
     windowHeader: {
         flex: 1,
-        // justifyContent: 'center',
-        // alignItems: 'center',
+        alignItems: 'center',
+        minWidth: 0,
     },
     windowBarIcon: {
-        paddingLeft: 4,
-        paddingRight: 4,
+        paddingRight: 8,
     },
 };
 

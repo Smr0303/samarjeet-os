@@ -13,7 +13,7 @@ export interface CommandResult {
 }
 
 export const BANNER = [
-    'MohiteOS [Version 2026.09.28]',
+    'SamOS [Version 2026.11]',
     '(C) Samarjeet Mohite. Forked from HeffernanOS.',
     '',
     'Type "help" to see what this thing can do.',
@@ -64,7 +64,7 @@ const HELP = [
 ];
 
 const DIR = [
-    ' Volume in drive C is MOHITEOS',
+    ' Volume in drive C is SAMOS',
     ' Directory of C:\\',
     '',
     'README   TXT         ' + README_TEXT.length.toString().padStart(6) + '  09-28-26   9:41p',
@@ -158,7 +158,7 @@ export function runCommand(raw: string, ctx: CommandContext): CommandResult {
         case 'clear':
             return { output: [], clear: true };
         case 'ver':
-            return { output: ['MohiteOS [Version 2026.09.28]', ''] };
+            return { output: ['SamOS [Version 2026.11]', ''] };
         case 'date': {
             const d = new Date();
             return {

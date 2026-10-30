@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import getIconByName, { IconName } from '../../assets/icons';
-import colors from '../../constants/colors';
+import { IconName } from '../../assets/icons';
+import theme from '../../constants/theme';
 import { Icon } from '../general';
 
 export interface DesktopShortcutProps {
@@ -23,8 +23,6 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
 
     const [scaledStyle, setScaledStyle] = useState({});
 
-    // Icon URL from the registry (png or svg), used as the selection mask.
-    const requiredIcon = getIconByName(icon) as unknown as string;
     const [doubleClickTimerActive, setDoubleClickTimerActive] = useState(false);
 
     const getShortcutId = useCallback(() => {
@@ -96,38 +94,39 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
             onMouseDown={handleClickShortcut}
             ref={containerRef}
         >
-            <div id={`${shortcutId}`} style={styles.iconContainer}>
+            <div
+                id={`${shortcutId}`}
+                className="desktop-icon-lift"
+                style={Object.assign(
+                    {},
+                    styles.iconContainer,
+                    isSelected && styles.iconSelected
+                )}
+            >
                 <div
                     id={`${shortcutId}`}
                     className="desktop-shortcut-icon"
-                    style={Object.assign(
-                        {},
-                        styles.iconOverlay,
-                        isSelected && styles.checkerboard,
-                        isSelected && {
-                            WebkitMask: `url(${requiredIcon})`,
-                        }
-                    )}
+                    style={styles.iconOverlay}
                 />
                 <Icon icon={icon} style={styles.icon} />
             </div>
             <div
-                className={
-                    isSelected
-                        ? 'selected-shortcut-border'
-                        : lastSelected
-                        ? 'shortcut-border'
-                        : ''
-                }
                 id={`${shortcutId}`}
-                style={isSelected ? { backgroundColor: colors.blue } : {}}
+                style={Object.assign(
+                    {},
+                    styles.label,
+                    isSelected && { backgroundColor: theme.amber }
+                )}
             >
                 <p
                     id={`${shortcutId}`}
                     style={Object.assign(
                         {},
                         styles.shortcutText,
-                        invertText && !isSelected && { color: 'black' }
+                        (isSelected || invertText) && {
+                            color: theme.amberInk,
+                            textShadow: 'none',
+                        }
                     )}
                 >
                     {shortcutName}
@@ -141,7 +140,6 @@ const styles: StyleSheetCSS = {
     appShortcut: {
         position: 'absolute',
         width: 56,
-
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
@@ -149,31 +147,33 @@ const styles: StyleSheetCSS = {
     },
     shortcutText: {
         cursor: 'pointer',
-        textOverflow: 'wrap',
-        fontFamily: 'MSSerif',
+        fontFamily: theme.uiFont,
+        fontWeight: 500,
         color: 'white',
         fontSize: 8,
-        paddingRight: 2,
-        paddingLeft: 2,
+        lineHeight: '10px',
+        textShadow: '0 1px 2px rgba(31, 27, 46, 0.8)',
+    },
+    label: {
+        borderRadius: 5,
+        padding: '1px 3px',
+        transition: 'background-color 0.15s ease',
     },
     iconContainer: {
         cursor: 'pointer',
-        paddingBottom: 3,
+        padding: 3,
+        marginBottom: 2,
+        borderRadius: 8,
+        transition: 'background-color 0.15s ease',
+    },
+    iconSelected: {
+        backgroundColor: 'rgba(255, 250, 244, 0.28)',
     },
     iconOverlay: {
         position: 'absolute',
         top: 0,
         width: 32,
         height: 32,
-    },
-    checkerboard: {
-        backgroundImage: `linear-gradient(45deg, ${colors.blue} 25%, transparent 25%),
-        linear-gradient(-45deg, ${colors.blue} 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, ${colors.blue} 75%),
-        linear-gradient(-45deg, transparent 75%, ${colors.blue} 75%)`,
-        backgroundSize: `2px 2px`,
-        backgroundPosition: `0 0, 0 1px, 1px -1px, -1px 0px`,
-        pointerEvents: 'none',
     },
 };
 

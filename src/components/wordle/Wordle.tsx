@@ -3,6 +3,14 @@ import { motion, useAnimation } from 'framer-motion';
 import WORDS from './Words';
 import { Easing } from '../general/Animation';
 
+// SamOS tile colours: teal in place, amber in the word, lilac-grey not in it
+const TILE = {
+    inPlace: '#7fc3b0',
+    inWord: '#f2b46d',
+    notInWord: '#d9ccd8',
+    empty: '#fffaf4',
+};
+
 export interface KeyboardLetterProps {
     letter: string;
     word: string;
@@ -65,9 +73,9 @@ const KeyboardLetter: React.FC<KeyboardLetterProps> = ({
             style={Object.assign(
                 {},
                 styles.letterBox,
-                isInWord && { backgroundColor: 'yellow' },
-                isInPlace && { backgroundColor: 'lightgreen' },
-                notInWord && { backgroundColor: 'gray' }
+                isInWord && { backgroundColor: TILE.inWord },
+                isInPlace && { backgroundColor: TILE.inPlace },
+                notInWord && { backgroundColor: TILE.notInWord }
             )}
         >
             <p>{letter}</p>
@@ -104,19 +112,17 @@ const GuessLetter: React.FC<GuessLetterProps> = ({
 
     return (
         <div
-            className="button-border"
             style={Object.assign(
                 {},
                 styles.guessLetterBox,
-                isInWord && { backgroundColor: 'yellow' },
-                isInPlace && { backgroundColor: 'lightgreen' },
-                !guessed && { backgroundColor: 'white' },
+                guessed && { backgroundColor: TILE.notInWord },
+                isInWord && { backgroundColor: TILE.inWord },
+                isInPlace && { backgroundColor: TILE.inPlace },
+                !guessed && { backgroundColor: TILE.empty },
                 letter === ' ' && styles.emptyBox
             )}
         >
-            <h3>
-                <b>{letter.toUpperCase()}</b>
-            </h3>
+            <h3 style={styles.guessLetter}>{letter.toUpperCase()}</h3>
         </div>
     );
 };
@@ -148,7 +154,7 @@ const GuessWord: React.FC<GuessWordProps> = ({
             ) {
                 controls
                     .start({
-                        backgroundColor: '#f00',
+                        backgroundColor: '#e2614c',
                         x: 2,
                         transition: {
                             duration: 0.1,
@@ -158,7 +164,7 @@ const GuessWord: React.FC<GuessWordProps> = ({
                         controls
                             .start({
                                 x: -4,
-                                backgroundColor: '#fff',
+                                backgroundColor: 'rgba(255, 250, 244, 0)',
                                 transition: {
                                     duration: 0.1,
                                 },
@@ -166,7 +172,7 @@ const GuessWord: React.FC<GuessWordProps> = ({
                             .then(() => {
                                 controls.start({
                                     x: 0,
-                                    backgroundColor: '#fff',
+                                    backgroundColor: 'rgba(255, 250, 244, 0)',
                                     transition: {
                                         duration: 0.09,
                                     },
@@ -397,7 +403,7 @@ const styles: StyleSheetCSS = {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#fff',
+        backgroundColor: '#fffaf4',
     },
     header: {
         flexShrink: 1,
@@ -439,14 +445,21 @@ const styles: StyleSheetCSS = {
         height: 60,
         justifyContent: 'center',
         alignItems: 'center',
-
+        boxSizing: 'border-box',
+        border: '1.5px solid #1f1b2e',
+        borderRadius: 12,
+        transition: 'background-color 0.35s ease',
         margin: 4,
+    },
+    guessLetter: {
+        fontFamily: "'Pixelify Sans', monospace",
+        fontSize: 28,
+        fontWeight: 600,
     },
     guessWordRow: {},
     emptyBox: {
-        border: '2px solid gray',
-        backgroundColor: 'white',
-        boxShadow: 'none',
+        border: '1.5px dashed rgba(31, 27, 46, 0.35)',
+        backgroundColor: '#fffaf4',
     },
 };
 

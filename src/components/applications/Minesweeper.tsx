@@ -19,6 +19,7 @@ export interface MinesweeperProps extends WindowAppProps {}
 type Status = 'ready' | 'playing' | 'won' | 'lost';
 
 const CELL = 26;
+const GAP = 3; // space between tiles
 const NUMBER_COLORS = [
     '',
     '#0000ff',
@@ -84,8 +85,8 @@ const Minesweeper: React.FC<MinesweeperProps> = (props) => {
         <Window
             top={120}
             left={480}
-            width={COLS * CELL + 46}
-            height={ROWS * CELL + 196}
+            width={COLS * (CELL + GAP) + 70}
+            height={ROWS * (CELL + GAP) + 220}
             windowTitle="Minesweeper"
             windowBarIcon="mineIcon"
             closeWindow={props.onClose}
@@ -148,14 +149,14 @@ const Minesweeper: React.FC<MinesweeperProps> = (props) => {
                                                 {},
                                                 styles.cell,
                                                 revealed && styles.cellOpen,
-                                                exploded && { background: '#ff0000' },
+                                                exploded && { background: '#e2614c' },
                                                 {
                                                     color:
                                                         revealed && !cell.mine
                                                             ? NUMBER_COLORS[cell.adjacent]
                                                             : cell.flagged
-                                                            ? '#ff0000'
-                                                            : '#000',
+                                                            ? '#e2614c'
+                                                            : '#1f1b2e',
                                                 }
                                             )}
                                             onClick={() => onReveal(r, c)}
@@ -177,80 +178,86 @@ const Minesweeper: React.FC<MinesweeperProps> = (props) => {
 const styles: StyleSheetCSS = {
     wrap: {
         flexDirection: 'column',
-        background: '#c0c0c0',
+        background: '#fdf6ee',
         userSelect: 'none',
     },
     menu: {
-        height: 20,
+        height: 32,
         alignItems: 'center',
-        paddingLeft: 4,
+        padding: '0 10px',
         flexShrink: 0,
+        borderBottom: '1px solid rgba(31, 27, 46, 0.12)',
     },
     menuItem: {
-        fontFamily: 'MSSerif',
+        fontFamily: "'DM Sans', sans-serif",
+        fontWeight: 500,
         fontSize: 13,
+        color: '#3a3346',
         marginRight: 14,
     },
     panel: {
         flexDirection: 'column',
-        margin: 6,
-        padding: 6,
-        boxShadow: 'var(--border-raised-outer), var(--border-raised-inner)',
+        margin: 12,
+        padding: 12,
+        borderRadius: 14,
+        border: '1.5px solid #1f1b2e',
+        background: '#fffaf4',
         alignSelf: 'flex-start',
     },
     header: {
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: 4,
-        marginBottom: 6,
-        boxShadow: 'var(--border-field)',
+        marginBottom: 10,
     },
     counter: {
-        background: '#000',
-        color: '#ff0000',
-        fontFamily: 'Terminal, monospace',
-        fontSize: 22,
-        lineHeight: '26px',
-        padding: '0 3px',
+        background: '#1b1726',
+        color: '#f2b46d',
+        fontFamily: "'JetBrains Mono', monospace",
+        fontWeight: 600,
+        fontSize: 18,
+        lineHeight: '30px',
+        padding: '0 10px',
+        borderRadius: 8,
         minWidth: 40,
-        textAlign: 'center',
+        justifyContent: 'center',
         letterSpacing: 2,
     },
     smiley: {
-        width: 30,
-        height: 30,
+        width: 36,
+        height: 32,
         padding: 0,
-        fontFamily: 'Terminal, monospace',
-        fontSize: 15,
+        fontFamily: "'JetBrains Mono', monospace",
+        fontSize: 14,
         lineHeight: '28px',
         cursor: 'pointer',
     },
     grid: {
         flexDirection: 'column',
-        boxShadow: 'var(--border-field)',
+        gap: GAP,
     },
     row: {
         flexDirection: 'row',
+        gap: GAP,
     },
+    // raised warm tile; see .mine-cell in index.css for hover and press
     cell: {
         width: CELL,
         height: CELL,
         boxSizing: 'border-box',
-        boxShadow: 'var(--border-raised-outer), var(--border-raised-inner)',
-        background: '#c0c0c0',
+        borderRadius: 6,
+        background: '#f6d3b0',
+        boxShadow: 'inset 0 -3px 0 rgba(31, 27, 46, 0.18)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        fontFamily: 'MillenniumBold, monospace',
+        fontFamily: "'DM Sans', sans-serif",
         fontSize: 15,
-        fontWeight: 'bold',
+        fontWeight: 700,
         cursor: 'pointer',
     },
     cellOpen: {
+        background: '#f1e8df',
         boxShadow: 'none',
-        border: '1px solid #808080',
-        borderRightColor: '#c0c0c0',
-        borderBottomColor: '#c0c0c0',
         cursor: 'default',
     },
 };
