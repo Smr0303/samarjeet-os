@@ -1,6 +1,6 @@
 import React from 'react';
 import Window from '../os/Window';
-import Resume from '../../assets/resume/Samarjeet_Mohite_Resume_Sep_2026.pdf';
+import Resume from '../../assets/resume/Samarjeet_Mohite_Resume_Oct_2026.pdf';
 
 export interface ResumeViewerProps extends WindowAppProps {}
 
@@ -17,7 +17,7 @@ const ResumeViewer: React.FC<ResumeViewerProps> = (props) => {
             closeWindow={props.onClose}
             onInteract={props.onInteract}
             minimizeWindow={props.onMinimize}
-            bottomLeftText={'Samarjeet_Mohite_Resume_Sep_2026.pdf'}
+            bottomLeftText={'Samarjeet_Mohite_Resume_Oct_2026.pdf'}
         >
             <div className="site-page" style={styles.wrap}>
                 <iframe
