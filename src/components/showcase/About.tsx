@@ -12,9 +12,10 @@ const About: React.FC<AboutProps> = (props) => {
             <br />
             <div className="text-block">
                 <p>
-                    I'm a software engineer at Fermi AI in Bangalore, where I
-                    work on the backend and frontend of an AI-powered STEM
-                    learning platform. In May 2025 I graduated from the Indian
+                    I'm a software engineer with 2+ years of experience,
+                    currently at Fermi AI (a Meraki Labs venture) in Bangalore,
+                    where I work on the backend and frontend of an AI-powered
+                    STEM learning platform. In May 2025 I graduated from the Indian
                     Institute of Information Technology, Gwalior with an
                     integrated Bachelors and Masters in Information Technology.
                 </p>
@@ -42,15 +43,14 @@ const About: React.FC<AboutProps> = (props) => {
                 </p>
                 <br />
                 <p>
-                    I started at Nurix AI as an intern in my final semester,
-                    building the frontend for an AI agent QA platform and a
-                    channel integration that embeds chat agents into any
-                    website. I also worked as a forward-deployed engineer,
-                    building conversational agents directly with clients in
-                    India and the US (First Mid, edtech and finance), worth
-                    $200K+ ARR combined. I converted to full time and moved to
-                    the backend:
-                    a campaign manager for bulk outbound calling that grew to
+                    I started my career at Nurix AI, another Meraki Labs
+                    venture, as a full-stack and delivery engineer. I built the
+                    frontend for an AI agent QA platform and a channel
+                    integration that embeds chat agents into any website, and
+                    worked as a forward-deployed engineer, building
+                    conversational agents directly with clients in India and
+                    the US (First Mid, edtech and finance), worth $200K+ ARR
+                    combined. On the backend I built a campaign manager for bulk outbound calling that grew to
                     ~40 clients and 5 lakh+ calls a day (500 in parallel), a
                     Redis-backed queue orchestrator, and the load testing that
                     cut database load by 70%. In 2026 I joined Fermi AI, a

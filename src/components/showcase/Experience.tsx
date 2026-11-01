@@ -29,7 +29,10 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             </div>
             <div className="text-block">
                 <p>
-                    Fermi AI is a Meraki Labs venture building an AI-powered
+                    <b>Meraki Labs Venture</b>
+                </p>
+                <p>
+                    Fermi AI is building an AI-powered
                     STEM learning platform: AI tutors, study tools and a
                     problem-solving workbench. Bangalore, onsite. Written in
                     Python and TypeScript using FastAPI, Postgres, Celery,
@@ -90,15 +93,18 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                     <div style={styles.headerRow}>
                         <h3>Software Engineer</h3>
                         <b>
-                            <p>Oct 2025 - Apr 2026</p>
+                            <p>Mar 2025 - Apr 2026</p>
                         </b>
                     </div>
                 </div>
             </div>
             <div className="text-block">
                 <p>
-                    Nurix AI is a Meraki Labs venture building AI voice and chat
-                    agents for enterprises. Bangalore, onsite. Written in
+                    <b>Meraki Labs Venture</b>
+                </p>
+                <p>
+                    Nurix AI builds AI voice and chat agents for enterprises.
+                    Full-stack and delivery engineer. Bangalore, onsite. Written in
                     Python and TypeScript using FastAPI, AWS SQS, MySQL, Redis
                     and Next.js.
                 </p>
@@ -147,36 +153,6 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                             triggering outbound calls.
                         </p>
                     </li>
-                </ul>
-            </div>
-            <div style={styles.headerContainer}>
-                <div style={styles.header}>
-                    <div style={styles.headerRow}>
-                        <h1>Nurix AI</h1>
-                        <a
-                            target="_blank"
-                            rel="noreferrer"
-                            href={'https://nurix.ai/'}
-                        >
-                            <h4>www.nurix.ai</h4>
-                        </a>
-                    </div>
-                    <div style={styles.headerRow}>
-                        <h3>Software Engineer Intern</h3>
-                        <b>
-                            <p>Mar 2025 - Sep 2025</p>
-                        </b>
-                    </div>
-                </div>
-            </div>
-            <div className="text-block">
-                <p>
-                    Joined Nurix as an intern during the final semester of my
-                    integrated degree and converted to a full-time engineer
-                    afterwards.
-                </p>
-                <br />
-                <ul>
                     <li>
                         <p>
                             Built the demo-agent website in Next.js: dozens of
@@ -221,7 +197,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                         </a>
                     </div>
                     <div style={styles.headerRow}>
-                        <h3>Software Engineer Intern</h3>
+                        <h3>Software Engineer</h3>
                         <b>
                             <p>Dec 2024 - Mar 2025</p>
                         </b>
