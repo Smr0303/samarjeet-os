@@ -69,10 +69,10 @@ const DIR = [
     '',
     'README   TXT         ' + README_TEXT.length.toString().padStart(6) + '  09-28-26   9:41p',
     'RESUME   TXT           1,392  09-28-26   9:41p',
-    'RESUME   PDF          39,433  11-01-26   9:30p',
+    'RESUME   PDF          39,490  11-01-26   9:45p',
     'PROJECTS     <DIR>           09-28-26   9:41p',
     'GAMES        <DIR>           09-28-26   9:41p',
-    '        3 file(s)         40,825 bytes',
+    '        3 file(s)         40,882 bytes',
     '        2 dir(s)   640,000 bytes free',
     '',
 ];
