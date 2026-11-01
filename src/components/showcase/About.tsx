@@ -53,7 +53,7 @@ const About: React.FC<AboutProps> = (props) => {
                     manager for bulk outbound calling that grew to ~40 clients
                     and 5 lakh+ calls a day (700 concurrent), a
                     Redis-backed queue orchestrator, and the load testing that
-                    cut database load by 70%. In 2026 I joined Fermi AI, a
+                    cut database load by 40%. In 2026 I joined Fermi AI, a
                     sister venture, where I built usage-based billing for AI
                     tutors and an A/B experiment platform, and launched Scan
                     &amp; Ask with India's National Digital Library. You can read more on the{' '}

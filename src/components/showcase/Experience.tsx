@@ -139,7 +139,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                     <li>
                         <p>
                             Performed load testing and system optimization that
-                            reduced database load by 70%, implemented Weighted
+                            reduced database load by 40%, implemented Weighted
                             Fair Scheduling and improved session handling to
                             scale the system.
                         </p>
