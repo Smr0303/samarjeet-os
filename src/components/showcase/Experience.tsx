@@ -116,18 +116,16 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                             bulk lead ingestion and automated outbound calling
                             with configurable logic, using FastAPI, AWS SQS and
                             MySQL. Built it end to end; it served ~40 clients
-                            and 5 lakh+ calls a day, with up to 500 calls in
-                            parallel.
+                            and 5 lakh+ calls a day, with up to 700 concurrent
+                            calls across all clients.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Worked as a forward-deployed engineer on
-                            conversational AI agents, directly with clients
-                            across India and the US (First Mid, edtech and
-                            finance companies), worth $200K+ ARR combined.
-                            Built, customised and launched voice and chat
-                            agents for each client.
+                            Worked as a forward-deployed engineer, building the
+                            integrations that connected our agents to the
+                            systems of edtech and retail clients, worth $200K+
+                            ARR combined.
                         </p>
                     </li>
                     <li>
